@@ -1,0 +1,89 @@
+<!DOCTYPE html5>
+<html>
+<head>
+    <title>Promise Assignment</title>
+</head>
+<body>
+    <h2>JavaScript Promise Assignment</h2>
+    <script>
+
+// Q1: Bank Account 
+let balance = 10000;
+let withdrawalAmount = 7000;
+let withdraw = new Promise((resolve, reject) => {
+
+    if (balance >= withdrawalAmount) {
+        resolve("Withdrawal Successful");
+    } else {
+        reject("Withdrawal Rejected");
+    }
+});
+withdraw
+.then((result) => {
+    console.log(result);
+})
+.catch((error) => {
+    console.log(error);
+});
+
+// Q2: Exam Result
+let marks = 80;
+let examResult = new Promise((resolve, reject) => {
+
+    if (marks < 0 || marks > 100) {
+        reject("Invalid Marks");
+    }
+    else if (marks >= 50) {
+        resolve("Pass");
+    }
+    else {
+        resolve("Fail");
+    }
+});
+examResult
+.then((result) => {
+    console.log(result);
+})
+.catch((error) => {
+    console.log(error);
+});
+
+// Q3: Product Delivery 
+let delivery = new Promise((resolve, reject) => {
+    setTimeout(() => {
+       reject("Delivery Failed");
+    }, 3000);
+});
+delivery
+.then((result) => {
+    console.log(result);
+})
+.catch((error) => {
+    console.log(error);
+});
+
+// Q4: Promise Chaining
+let number = new Promise((resolve, reject) => {
+    resolve(10);
+});
+
+number
+.then((result) => {
+    return result + 20;
+})
+.then((result) => {
+    return result * 2;
+})
+.then((result) => {
+    return result - 5;
+})
+.then((result) => {
+    console.log("Final Result:", result);
+})
+.catch((error) => {
+    console.log(error);
+});
+    </script>
+
+</body>
+</html>
